@@ -5,7 +5,7 @@ import App from './App';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { createMuiTheme } from 'material-ui/styles'
-import lime from 'material-ui/colors/lime';
+import lime from 'material-ui/colors/lime'
 
 const theme = createMuiTheme({
   palette: {
