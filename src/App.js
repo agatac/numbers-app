@@ -3,15 +3,8 @@ import React, { Component } from 'react'
 import lifePathDescr from './data/lifePath'
 import lifeCycleDescr from './data/lifeCycle'
 
-import Paper from 'material-ui/Paper'
 import InputDate from './components/InputDate'
 import CardLifePath from './components/CardLifePath'
-import lime from 'material-ui/colors/lime'
-
-const style = {
-  marginBottom: 50,
-  textAlign: 'center',
-};
 
 class App extends Component {
 
@@ -57,9 +50,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Paper style={style}>
-          <InputDate onDateSubmit={this.onDateSubmit} />
-        </Paper>
+        <InputDate onDateSubmit={this.onDateSubmit} />
         {
           this.state.lifePath &&
           <CardLifePath

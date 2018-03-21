@@ -45,6 +45,7 @@ const CardLifePath = (props) => {
         spacing={24}
         alignItems="center"
         justify="center"
+        className={classes.container}
       >
         <Grid item xs={12} lg={9}>
           <Card className={classes.card}>
