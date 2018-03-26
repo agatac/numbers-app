@@ -5,11 +5,12 @@ import App from './App';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import { createMuiTheme } from 'material-ui/styles'
-import lime from 'material-ui/colors/lime'
+import purple from 'material-ui/colors/purple'
 
 const theme = createMuiTheme({
   palette: {
-    primary: lime,
+    type: 'dark',
+    primary: purple,
   },
 });
 

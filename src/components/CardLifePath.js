@@ -4,7 +4,7 @@ import Grid from 'material-ui/Grid'
 import Card, { CardActions, CardContent } from 'material-ui/Card'
 import Typography from 'material-ui/Typography'
 import Button from 'material-ui/Button'
-import lime from 'material-ui/colors/lime'
+import purple from 'material-ui/colors/purple'
 
 const styles = theme => ({
   root: {
@@ -14,10 +14,7 @@ const styles = theme => ({
     marginTop: 32,
   },
   card: {
-    borderLeft: `3px solid ${lime[500]}`,
-  },
-  card2: {
-    borderTop: `3px solid ${lime[900]}`,
+    borderLeft: `3px solid ${purple[500]}`,
   },
   title: {
     marginBottom: 16,
@@ -32,12 +29,6 @@ const CardLifePath = (props) => {
   const {
     lifePath,
     lifePathDescr,
-    cycle1,
-    cycle1descr,
-    cycle2,
-    cycle2descr,
-    cycle3,
-    cycle3descr
   } = props
   return (
     <div className={classes.root}>
@@ -65,59 +56,6 @@ const CardLifePath = (props) => {
               Co to Droga Życia?
             </Button>
             </CardActions>
-          </Card>
-        </Grid>
-      </Grid>
-
-      <Grid container
-        spacing={24}
-        alignItems="center"
-        justify="center"
-        className={classes.container}
-      >
-        <Grid item xs={12} md={4} lg={3}>
-          <Card className={classes.card2}>
-            <CardContent>
-              <Typography className={classes.title} color="textSecondary">
-                Cykl pierwszy
-              </Typography>
-              <Typography variant="headline" component="h3">
-                {cycle1}
-              </Typography>
-              <Typography component="p">
-                {cycle1descr}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} md={4} lg={3}>
-          <Card className={classes.card2}>
-            <CardContent>
-              <Typography className={classes.title} color="textSecondary">
-                Cykl drugi
-              </Typography>
-              <Typography variant="headline" component="h3">
-                {cycle2}
-              </Typography>
-              <Typography component="p">
-                {cycle2descr}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-        <Grid item xs={12} md={4} lg={3}>
-          <Card className={classes.card2}>
-            <CardContent>
-              <Typography className={classes.title} color="textSecondary">
-                Cykl trzeci
-              </Typography>
-              <Typography variant="headline" component="h3">
-                {cycle3}
-              </Typography>
-              <Typography component="p">
-                {cycle3descr}
-              </Typography>
-            </CardContent>
           </Card>
         </Grid>
       </Grid>

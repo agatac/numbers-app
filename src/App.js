@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 // import moment from 'moment'
 import lifePathDescr from './data/lifePath'
 import lifeCycleDescr from './data/lifeCycle'
+import pinnacle1Descr from './data/pinnacle1'
+import pinnaclesDescr from './data/pinnacles'
 
 import InputDate from './components/InputDate'
 import CardLifePath from './components/CardLifePath'
+import CardLifeCycle from './components/CardLifeCycle'
+import CardPinnacles from './components/CardPinnacles'
 
 class App extends Component {
 
@@ -15,6 +19,7 @@ class App extends Component {
       digits: [],
       lifePath: null,
       cycles: null,
+      pinnacles: null, //szczyty
     }
 
     this.onDateSubmit = this.onDateSubmit.bind(this)
@@ -34,7 +39,17 @@ class App extends Component {
     const cycle1 = digits.month
     const cycle2 = digits.day
     const cycle3 = digits.year
-    this.setState({ digits, lifePath, cycles: { cycle1, cycle2, cycle3 }})
+    const p1 = this.reduceToSingleDigit([digits.month, digits.day]);
+    const p2 = this.reduceToSingleDigit([digits.day, digits.year]);
+    const p3 = this.reduceToSingleDigit([p1, p2]);
+    const p4 = this.reduceToSingleDigit([digits.month, digits.year]);
+
+    this.setState({
+      digits,
+      lifePath,
+      cycles: { cycle1, cycle2, cycle3 },
+      pinnacles: { p1, p2, p3, p4 }
+    })
   }
 
   reduceToSingleDigit(digits) {
@@ -56,6 +71,10 @@ class App extends Component {
           <CardLifePath
             lifePath={this.state.lifePath}
             lifePathDescr={lifePathDescr[this.state.lifePath]}
+          />
+        }{
+          this.state.cycles &&
+          <CardLifeCycle
             cycle1={this.state.cycles.cycle1}
             cycle1descr={lifeCycleDescr[this.state.cycles.cycle1]}
             cycle2={this.state.cycles.cycle2}
@@ -64,7 +83,16 @@ class App extends Component {
             cycle3descr={lifeCycleDescr[this.state.cycles.cycle3]}
           />
         }
-
+        {
+          this.state.pinnacles &&
+          <CardPinnacles
+            pinnacles={this.state.pinnacles}
+            p1descr={pinnacle1Descr[this.state.pinnacles.p1]}
+            p2descr={pinnaclesDescr[this.state.pinnacles.p2]}
+            p3descr={pinnaclesDescr[this.state.pinnacles.p3]}
+            p4descr={pinnaclesDescr[this.state.pinnacles.p4]}
+          />
+        }
       </div>
     );
   }
